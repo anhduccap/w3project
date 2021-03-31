@@ -35,7 +35,7 @@ Làm quen với việc xây dừng web dựa trên dự án mẫu
             - Giữ Alt + click trước các id để thêm cursor để thêm #, và sau cursor (Ctrl + ->) để thêm {}
           
 !! Lỗi: failed to push some refs to:
-git reset --mixed origin/main
-git add .
-git commit -m "This is a new commit for what I originally planned to be amended"
-git push origin main
+    + git reset --mixed origin/main
+    + git add .
+    + git commit -m "This is a new commit for what I originally planned to be amended"
+    + git push origin main
