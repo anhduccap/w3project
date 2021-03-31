@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/w3school/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div id="main">
+        <!--
+            Cố định header
+                + Set position là fixed
+                + Lúc này, header trở thành layer riêng biệt và không còn kế thừa chiều ngang từ main được nữa -> top left right = 0
+                + Lúc này, ta cần xử lý lại phần bên dưới header vì 1 phần bị header che mất (slider) -> chỉnh margin-top của slider
+        -->
+        <div id="header">
+            <!-- Shorthand: ul#nav>li*5>a -->
+            <ul id="nav">
+                <!--Dùng CSS để chuyển tất cả thành 1 dạng đồng nhất (Chữ hoa hoặc chữ thường), không phụ thuộc input-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Band</a></li>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Contact</a></li>
+                <li>
+                    <a href="#">
+                        More
+                        <i class="nav-icon-down ti-arrow-circle-down"></i>
+                    </a>
+                    <ul class="subnav">
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                    <!--
+                        - Khi gặp các bài toán sub nav, việc đầu tiên là cho sub hiện ra, sau khi css xong ta mới set display + hover
+                        - Vì sub nav là con của More -> sử dụng absolute để set vị trí
+                        Lúc này, vị trí của sub nav lấy thẻ li cha của nó làm gốc tọa độ
+                            Để fix giá trị, ta nên đặt top là 100% (cách thẻ cha đúng 46px) và left là 0
+                        - Trả lời 4 câu hỏi trước khi CSS:
+                            + Vị trí: con của More, nằm dưới More -> ok
+                            + Kích thước: cao 46px
+                            + Màu sắc, kiểu dáng
+                                _ vì các subnav đều thỏa mãn #nav li a nên đều chịu ảnh hướng của các lệnh CSS trước -> sử dụng con trực tiếp
+                                    #nav > li > a
+                                _ màu chữ của sub nav chuyển thành đen (#nav .subnav a)
+                                _ khi di chuột vào More, subnav vẫn bị nền xám -> phải tách ra
+                                _ thẻ .subnav li a có thuộc tính inline-block -> có tính chất khối (xét được chiều ngang chiều dọc), nhưng vừa có tính chất inline, nghĩa là không kế thừa chiều ngang của thẻ cha mà chỉ có kích thước vừa đủ với content
+                                    -> sửa inline - block thành block và display của li trong subnav thành block (hoặc có thể cho width là 100%)
+                                _ viết hoa sub cấp 1
+                        !!! CÁC KÍCH THƯỚC KHOẢNG CÁCH NÊN CHIA HẾT CHO 4
+                                _ tạo bóng đổ cho subnav
+                                _ di vào thẻ li -> hiện subnav
+                    -->
+                </li>
+            </ul>
+
+            <!--Search btn-->
+            <div class="search-btn">
+                <i class="search-icon ti-search"></i>
+            </div>
+        </div>
+        
+        <!-- ------- Slider start ------- -->
+        <div id="slider">
+            <!-- NOTE
+            + Ta nhận thấy rằng, ảnh trong phần này chiếm toàn bộ chiều ngang. Vì được đặt trong thẻ div (có tính chất kế thừa chiều ngang) nên ta không cần quan tâm tới
+            + Dựa vào KÍCH THƯỚC GỐC của bức ảnh cần chèn để tính ra TỈ LỆ giữa chiều rộng vào chiều cao của bức ảnh -> khi hiển thị, ta chỉ cần hiển thị đúng tỉ lệ đó thì ảnh sẽ không bị méo
+            + Ta đặt padding-top = 50% <-> 50% ở đây nghĩa là 50% kích thước của chính đối tượng đó
+            + Ta chèn hình ảnh dưới dạng background-image, bg-clip sẽ là padding-box
+            + Chèn text
+            + Khi ta thêm text mà chưa chỉnh sửa gì, mặc định phần text sẽ là phần content của slider, phần padding sẽ tự động căn theo chiều rộng (không đổi) -> chiều cao (padding cũng sẽ không đổi) sẽ bị thay đổi bởi phần content mới được thêm vào -> thay đổi tỉ lệ ban đầu
+                -> set slider position = relative, text-content position = absolute
+                Lúc này, text-content không còn chiếm chỗ trong slider nữa mà đã ở 1 layer khác
+            -->
+            <div class="text-content">
+                <h2 class="text-heading">New York</h2>
+                <div class="text-description">
+                    The atmosphere in New York is lorem ipsum.
+                </div>
+            </div>
+        </div>
+        <!-- ------- Slider end ------- -->
+
+        <div id="content">
+            <div class="content-section">
+                <h2 class="section-heading">THE BAND</h2>
+                <p class="section-sub-heading">We love music</p>
+                <p class="about-text">
+                    We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <div class="members-list">
+                    <!--
+                        + Thẻ div có tính chất block nên khi khởi tạo, mỗi member sẽ nằm trên một dòng
+                    --> 
+                    <div class="member-item">
+                        <p class="member-name">Cristiano Ronaldo</p>
+                        <img src="/w3school/assets/img/band/member1.jpg" alt="Cristiano Ronaldo" class="member-img">
+                    </div>
+                    <div class="member-item">
+                        <p class="member-name">Marcus Rashford</p>
+                        <img src="/w3school/assets/img/band/member1.jpg" alt="Marcus Rashford" class="member-img">
+                    </div>
+                    <div class="member-item">
+                        <p class="member-name">Bruno Fernandes</p>
+                        <img src="/w3school/assets/img/band/member1.jpg" alt="Bruno Fernandes" class="member-img">
+                    </div>       
+                    <div class="clear"></div>             
+                </div>
+            </div>
+            
+            <!------------TOUR SECTION----------
+            + Khi ta set thuộc tính background color, phần margin sẽ không được set
+            -> đối với phần tour, ta phải tạo một thẻ div bao phủ bên ngoài
+            + Vì màu chữ mặc định được set là đen, ta có thể tạo thêm 1 class dành riêng để chuyển thành chữ trắng, và thêm tên class vào phần text cần chuyển
+            -->
+            <div class="tour-section">
+                <div class="content-section">
+                    <h2 class="section-heading white-text">TOUR DATES</h2>
+                    <p class="section-sub-heading white-text">Remember to book your tickets!</p>
+                    <br>
+                    <ul class="tickets-list">
+                        <li>September <span class="sold-out">Sold out</span></li>
+                        <li>October <span class="sold-out">Sold out</span></li>
+                        <li>November <span class="quantity">3</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-section">
+                <h2 class="section-heading">CONTACT</h2>
+                <p class="section-sub-heading">Fan? Drop a note!</p>
+                
+            </div>
+
+            
+        </div>
+
+        <div id="footer">
+
+        </div>
+    </div>
+</body>
+</html>
