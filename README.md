@@ -21,8 +21,8 @@ Example project: https://www.w3schools.com/w3css/tryw3css_templates_band.htm
     + Hoàn thiện
 
 3. Chuyển nhanh cấu trúc file html sang css
-            - Bôi đen phần :    id="
-            - Shift + Ctrl + L : Chọn tất cả các thành phần tương tự
-            - Shift + Ctrl + ->  : Chọn tất cả tên ID
-            - Coppy + Paste sang file CSS
-            - Giữ Alt + click trước các id để thêm cursor để thêm #, và sau cursor (Ctrl + ->) để thêm {}
+    + Bôi đen phần :    id="
+    + Shift + Ctrl + L : Chọn tất cả các thành phần tương tự
+    + Shift + Ctrl + ->  : Chọn tất cả tên ID
+    + Coppy + Paste sang file CSS
+    + Giữ Alt + click trước các id để thêm cursor để thêm #, và sau cursor (Ctrl + ->) để thêm {}
