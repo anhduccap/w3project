@@ -34,7 +34,8 @@ Làm quen với việc xây dừng web dựa trên dự án mẫu
             - Coppy + Paste sang file CSS
             - Giữ Alt + click trước các id để thêm cursor để thêm #, và sau cursor (Ctrl + ->) để thêm {}
           
-- Lỗi: failed to push some refs to:
+- Lỗi: failed to push some refs to: pull trước khi push để đồng bộ từ 2 phía
+- Cách giải quyết cuối cùng là reset:
     + git reset --mixed origin/main
     + git add .
     + git commit -m "This is a new commit for what I originally planned to be amended"
