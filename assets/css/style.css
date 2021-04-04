@@ -152,7 +152,9 @@ Trả lời lần lượt các câu hỏi:
     font-weight: 700;
 }
 
-#content
+#content {
+    /*Mặc dù không CSS gì nhưng không được bỏ đi*/
+}
 
 #content .content-section{
     width: 800px;
@@ -264,3 +266,70 @@ Trả lời lần lượt các câu hỏi:
     margin-top: -1px;
     /*quantity lấy thẻ li làm gốc tọa độ. Quantity có kích thước lơn hơn chiều cao thẻ li nên bị dư 1 đoạn -> dùng margin top để di chuyển lên 1 tí (margin âm chỉ sử dụng được khi có float)*/
 }
+
+.place-list {
+    padding: 32px 8px;
+    margin: 0 -16px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/*
+margin left và right là số âm là để căn đều 3 place list, nếu không, 2 khoảng cách ở giữa place 1 vs 2 và 2 vs 3 sẽ gấp đôi bên trái place 1 hoặc bên phải place 3 */
+
+.place-item {
+    margin-bottom: 16px;
+    padding: 0 8px;
+    width: calc(100%/3);
+    background-clip: content-box;
+    float: left;
+}
+
+.place-img {
+    width: 100%;
+    vertical-align: middle;
+    /*
+    Có thể thay thế bằng display block, tác dụng giúp loại bỏ khoảng cách giữa img vs body
+    */
+}
+
+.place-img:hover {
+    opacity: .6;
+}
+
+.place-body {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0.15px 16px;
+    background-color: #fff;
+}
+
+.place-heading {
+    margin: 15px 0;
+}
+
+.place-time {
+    opacity: .6;
+    margin-bottom: 15px;
+}
+
+.place-desc {
+    margin-bottom: 15px;
+}
+
+.place-buy-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    background-color: black;
+    color: #fff;
+    text-decoration: none;
+}
+
+.place-buy-btn:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+
+#footer {}
