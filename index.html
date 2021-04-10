@@ -91,19 +91,19 @@
                 <p class="about-text">
                     We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
-                <div class="members-list">
+                <div class="row members-list">
                     <!--
                         + Thẻ div có tính chất block nên khi khởi tạo, mỗi member sẽ nằm trên một dòng
                     --> 
-                    <div class="member-item">
+                    <div class="col col-3 text-center">
                         <p class="member-name">Cristiano Ronaldo</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Cristiano Ronaldo" class="member-img">
                     </div>
-                    <div class="member-item">
+                    <div class="col col-3 text-center">
                         <p class="member-name">Marcus Rashford</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Marcus Rashford" class="member-img">
                     </div>
-                    <div class="member-item">
+                    <div class="col col-3 text-center">
                         <p class="member-name">Bruno Fernandes</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Bruno Fernandes" class="member-img">
                     </div>       
@@ -136,8 +136,8 @@
                             - Vì các thẻ div con có cấu trúc giống nhau nên chỉ cần tạo cấu trúc 1 lần và nhân 3 lên
                     -->
 
-                    <div class="place-list">
-                        <div class="place-item">
+                    <div class="row place-list">
+                        <div class="col col-3">
                             <img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <p class="place-heading"><b>New York</b></p>
@@ -146,7 +146,7 @@
                                 <a href="#" class="place-buy-btn">Buy Tickets</a>
                             </div>
                         </div>
-                        <div class="place-item">
+                        <div class="col col-3">
                             <img src="./assets/img/places/place2.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <p class="place-heading"><b>Paris</b></p>
@@ -155,7 +155,7 @@
                                 <a href="#" class="place-buy-btn">Buy Tickets</a>
                             </div>
                         </div>
-                        <div class="place-item">
+                        <div class="col col-3">
                             <img src="./assets/img/places/place3.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <p class="place-heading"><b>San Francisco</b></p>
@@ -169,12 +169,22 @@
 
                 </div>
             </div>
+
+            <!-- __________ ROW - COLUMN  __________
+                + Trong các trang web, khái niệm hàng và cột được lặp lại ở rất nhiều nơi
+                + Ở vd này, phần member lists, tickets, places đều được chia thành các hàng và cột.
+                + Mặc dù có tính chất giống nhau nhưng ta lại phải đi CSS cho từng phần riêng biệt -> mất thời gian
+                 -> TẠI SAO CHÚNG TA KHÔNG CSS CHUNG THÀNH 1 CLASS VÀ CHỈ VIỆC GỌI LẠI TÊN CLASS ĐÓ ???
+                + Lợi ích:
+                    - Không cần CSS lặp lại nhiều lần
+                    - Tiết kiệm dung lượng file
+                    - Không mất công đặt tên class, tránh trùng lặp
+                + Tiến hành tách các thuộc tính chung của cột và hàng ra thành các class riêng biệt ở file CSS
+            -->
             <div class="content-section">
                 <h2 class="section-heading">CONTACT</h2>
                 <p class="section-sub-heading">Fan? Drop a note!</p>
             </div>
-
-            
         </div>
 
         <div id="footer">

@@ -1,3 +1,5 @@
+/*File CSS trước khi gộp class*/
+
 /* Reset CSS */
 *{
     padding: 0;
@@ -7,39 +9,10 @@
 
 html {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
 }
 
 .clear {
     clear: both;
-}
-
-.row {
-    /* margin-left: -16px;
-    margin-right: -16px; */
-    /*Nhận thêm 8px từ padding left right của place list*/
-    margin-left: -8px;
-    margin-right: -8px;
-}
-
-.col {
-    padding-left: 8px;
-    padding-right: 8px;
-    float: left;
-    background-clip: content-box;
-}
-
-.col-2 {
-    width: 50%;
-}
-
-.col-3 {
-    width: calc(100%/3);
-}
-
-.text-center {
-    text-align: center !important;
 }
 
 /*
@@ -219,8 +192,12 @@ Trả lời lần lượt các câu hỏi:
 }
 
 #content .members-list{
-    padding: 32px 0;
-    /* text-size-adjust: 100%; */
+    display: block;
+    padding: 32px 0 32px 0;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
+    text-size-adjust: 100%;
     /* overflow: hidden; */
 }
 
@@ -230,11 +207,10 @@ Trả lời lần lượt các câu hỏi:
         + Cách 2: clear float
 */
 
-/* #content .member-item {
+#content .member-item {
+    display: block;
     float: left;
-    width: calc(100%/3);
-    text-align: center;
-} */
+}
 
 #content .member-name {
     font-size: 15px;
@@ -293,32 +269,23 @@ Trả lời lần lượt các câu hỏi:
     /*quantity lấy thẻ li làm gốc tọa độ. Quantity có kích thước lơn hơn chiều cao thẻ li nên bị dư 1 đoạn -> dùng margin top để di chuyển lên 1 tí (margin âm chỉ sử dụng được khi có float)*/
 }
 
-/*====== Places list ======
- + Các thành phần trong place-list chứa tính chất của hàng
- + Các thành phần trong place-item chứa tính chất của cột
-  !! Width = 33% không thể là tính chất của cột vì không phải lúc nào cũng là 3 cột
-*/
-
-/*Để các tính chất left, right không còn liên quan tới place-list, ta tách luôn phần padding left right sang row*/
-
 .place-list {
-    /* padding: 32px 8px; */
-    padding-top: 32px;
-    /* padding-bottom: 32px; */
-    padding-bottom: 48px; /*Nhận thêm 16px từ margin bottom của item*/
-    /* margin: 0 -16px; */
+    padding: 32px 8px;
+    margin: 0 -16px;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 /*
 margin left và right là số âm là để căn đều 3 place list, nếu không, 2 khoảng cách ở giữa place 1 vs 2 và 2 vs 3 sẽ gấp đôi bên trái place 1 hoặc bên phải place 3 */
 
-/* .place-item {
+.place-item {
     margin-bottom: 16px;
     padding: 0 8px;
     width: calc(100%/3);
     background-clip: content-box;
     float: left;
-} */
+}
 
 .place-img {
     width: 100%;
