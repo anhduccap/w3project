@@ -9,6 +9,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     line-height: 1.5;
+    scroll-behavior: smooth;
 }
 
 .clear {
@@ -23,11 +24,21 @@ html {
     margin-right: -8px;
 }
 
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .col {
     padding-left: 8px;
     padding-right: 8px;
     float: left;
     background-clip: content-box;
+}
+
+.col-full {
+    width: 100%;
 }
 
 .col-2 {
@@ -36,6 +47,39 @@ html {
 
 .col-3 {
     width: calc(100%/3);
+}
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt16 {
+    margin-top: 16px !important;
+}
+
+.mbt16 {
+    margin-bottom: 16px;
+}
+
+.pull-right {
+    float: right;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #000;
+    color: white;
+    border: none;
+    line-height: 1.5;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ccc;
+    color: black;
 }
 
 .text-center {
@@ -352,19 +396,53 @@ margin left và right là số âm là để căn đều 3 place list, nếu kh�
     margin-bottom: 15px;
 }
 
-.place-buy-btn {
-    display: inline-block;
-    margin-bottom: 15px;
-    padding: 8px 16px;
-    background-color: black;
-    color: #fff;
-    text-decoration: none;
+.contact-content {
+    padding: 32px 0;
 }
 
-.place-buy-btn:hover {
-    background-color: #ccc;
+.contact-info {
+    font-size: 18px;
+}
+
+.contact-info i[class*="ti-"] {
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-form .form-control {
+    padding: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.map-section img {
+    width: 100%;
+}
+
+#footer {
+    padding: 64px 16px;
+    text-align: center;
+}
+
+.socials-list a {
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1.5;
+    color: black;
+    opacity: .6;
+    cursor: unset;
+}
+
+.socials-list a:hover{
+    opacity: .4;
+}
+
+.copyright {
+    opacity: .6;
+}
+
+.copyright a {
     color: black;
 }
-
-
-#footer {}

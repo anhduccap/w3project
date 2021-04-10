@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Band</title>
     <link rel="stylesheet" href="/w3school/assets/css/style.css">
     <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
 </head>
@@ -21,9 +21,9 @@
             <ul id="nav">
                 <!--Dùng CSS để chuyển tất cả thành 1 dạng đồng nhất (Chữ hoa hoặc chữ thường), không phụ thuộc input-->
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Band</a></li>
-                <li><a href="#">Tour</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#band">Band</a></li>
+                <li><a href="#tour">Tour</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li>
                     <a href="#">
                         More
@@ -85,7 +85,7 @@
         <!-- ------- Slider end ------- -->
 
         <div id="content">
-            <div class="content-section">
+            <div id="band" class="content-section">
                 <h2 class="section-heading">THE BAND</h2>
                 <p class="section-sub-heading">We love music</p>
                 <p class="about-text">
@@ -107,7 +107,7 @@
                         <p class="member-name">Bruno Fernandes</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Bruno Fernandes" class="member-img">
                     </div>       
-                    <div class="clear"></div>             
+                    <!-- <div class="clear"></div>              -->
                 </div>
             </div>
             
@@ -116,7 +116,7 @@
             -> đối với phần tour, ta phải tạo một thẻ div bao phủ bên ngoài
             + Vì màu chữ mặc định được set là đen, ta có thể tạo thêm 1 class dành riêng để chuyển thành chữ trắng, và thêm tên class vào phần text cần chuyển
             -->
-            <div class="tour-section">
+            <div id="tour" class="tour-section">
                 <div class="content-section">
                     <h2 class="section-heading white-text">TOUR DATES</h2>
                     <p class="section-sub-heading white-text">Remember to book your tickets!</p>
@@ -143,7 +143,7 @@
                                 <p class="place-heading"><b>New York</b></p>
                                 <p class="place-time">Fri 27 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <a href="#" class="btn mbt16">Buy Tickets</a>
                             </div>
                         </div>
                         <div class="col col-3">
@@ -152,7 +152,7 @@
                                 <p class="place-heading"><b>Paris</b></p>
                                 <p class="place-time">Sat 28 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <a href="#" class="btn mbt16">Buy Tickets</a>
                             </div>
                         </div>
                         <div class="col col-3">
@@ -161,10 +161,10 @@
                                 <p class="place-heading"><b>San Francisco</b></p>
                                 <p class="place-time">Sun 29 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <a href="#" class="btn mbt16">Buy Tickets</a>
                             </div>
                         </div>
-                        <div class="clear"></div> 
+                        <!-- <div class="clear"></div>  -->
                     </div>
 
                 </div>
@@ -181,14 +181,65 @@
                     - Không mất công đặt tên class, tránh trùng lặp
                 + Tiến hành tách các thuộc tính chung của cột và hàng ra thành các class riêng biệt ở file CSS
             -->
-            <div class="content-section">
+
+            <!--    ----- CONTACT -----   -->
+            <div id="contact" class="content-section">
                 <h2 class="section-heading">CONTACT</h2>
                 <p class="section-sub-heading">Fan? Drop a note!</p>
+
+                <div class="row contact-content">
+                    <div class="col col-2 contact-info">
+                        <p><i class="ti-location-pin"></i> Chicago, US</p>
+                        <p><i class="ti-mobile"></i> Phone: +00 151515</p>
+                        <p><i class="ti-email"></i> Email: mail@mail.com</p>
+                    </div>
+                    <div class="col col-2 contact-form">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col col-2">
+                                    <input required type="text" placeholder="Name" class="form-control">
+                                </div>
+                                <div class="col col-2">
+                                    <input required type="email" placeholder="Email" class="form-control">
+                                </div>
+                                <!-- <div class="clear"></div> -->
+                            </div>
+                            <div class="row mt-8">
+                                <div class="col col-full">
+                                    <input required type="text" placeholder="Message" class="form-control">
+                                </div>
+                                <!-- <div class="clear"></div> -->
+                            </div>
+                            <input class="mt16 btn pull-right" type="submit" value="SEND">
+                        </form>
+                    </div>
+                    <!-- <div class="clear"></div> -->
+                    
+
+                    <!-- Việc dùng lặp đi lặp lại nhiều lần clear là không tốt -> dùng pseudo element để CSS cho row -->
+
+                    <!--Ta nhận thấy btn của buy ticket và send là như nhau -> viết thành một class duy nhất, trong tương lai có thể sử dụng lại nhiều lần-->
+
+                </div>
             </div>
+            <!--    ----- END CONTACT -----   -->
+
+            <div class="map-section">
+                <img src="/w3school/assets/img/map.jpg" alt="Map">
+            </div>
+
         </div>
 
         <div id="footer">
-
+            <div class="socials-list">
+                <a href="#footer"><i class="ti-facebook"></i></a>
+                <a href="#footer"><i class="ti-instagram"></i></a>
+                <a href="#footer"><i class="ti-youtube"></i></a>
+                <a href="#footer"><i class="ti-pinterest"></i></a>
+                <a href="#footer"><i class="ti-twitter"></i></a>
+                <a href="#footer"><i class="ti-linkedin"></i></a>
+            </div>
+            <p class="copyright mt16 mbt16">Powered by <a href="#footer">w3.css</a></p>
         </div>
     </div>
 </body>
