@@ -1,0 +1,450 @@
+/*Đã gộp class nhưng chưa thực hiện responsive*/
+
+/* Reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+.clear {
+    clear: both;
+}
+
+.row {
+    /* margin-left: -16px;
+    margin-right: -16px; */
+    /*Nhận thêm 8px từ padding left right của place list*/
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.col {
+    padding-left: 8px;
+    padding-right: 8px;
+    float: left;
+    background-clip: content-box;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+.col-3 {
+    width: calc(100%/3);
+}
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt16 {
+    margin-top: 16px !important;
+}
+
+.mbt16 {
+    margin-bottom: 16px;
+}
+
+.pull-right {
+    float: right;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #000;
+    color: white;
+    border: none;
+    line-height: 1.5;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/*
+Nguyên tắc:
+    + Từ ngoài vào trong
+    + Từ trên xuống dưới
+    + Từ tổng quan đến chi tiết
+
+Trả lời lần lượt các câu hỏi:
+    + Vị trí
+    + Kích thước
+    + Màu sắc
+    + Kiểu dáng 
+*/
+
+#main
+
+#header{
+    height: 46px;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#nav, .subnav {
+    display: inline-block;
+    list-style-type: none;
+}
+
+#nav li {
+    display: inline-block;
+    position: relative;
+}
+
+#nav > li > a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#nav .subnav a {
+    color: #000;
+    padding: 0 16px;
+    line-height: 38px;
+}
+
+#nav .subnav li {
+    display: block;
+}
+
+#nav li a {
+    text-decoration: none;
+    line-height: 46px;
+    /*line-height là chiều cao block chữ khi được bôi đen. Vì chữ luôn nằm giữa block đó nên khi đặt kích thước block bôi đen = nav -> căn giữa*/
+    padding: 0 24px;
+    /*Mặc định thẻ a có thuộc tính display là inline (nghĩa là không thay đổi được kích thước)*/
+    /*Khi ta đổi thành inline-block, kích thước sẽ được căn theo line-height*/
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+/* #nav li:hover a {
+    color: #000;
+    background-color: #ccc;
+} */
+#nav > li:hover > a,
+#nav .subnav li:hover a {
+    color: #000;
+    background-color: #ccc;
+}
+
+/* #nav .subnav li:hover a {
+    background-color: #ccc;
+} */
+
+#nav .nav-icon-down {
+    font-size: 12px;
+}
+
+#nav .subnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+}
+
+#nav li:hover .subnav {
+    display: block;
+}
+
+#header .search-btn {
+    float: right;
+    padding: 0 21px;
+}
+
+#header .search-btn:hover {
+    background-color: #f44336;
+    cursor: pointer;
+}
+
+#header .search-icon {
+    color: #fff;
+    font-weight: bold;
+    line-height: 46px;
+}
+
+#slider{
+    position: relative;
+    margin-top: 46px    ;
+    padding-top: 50%;
+    /*Shorthand*/
+    background: url(/w3school/assets/img/slider/slider1.jpg) top center / cover no-repeat;
+}
+
+#slider .text-content {
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 32px 16px;
+}
+
+#slider .text-heading {
+    margin: 10px auto;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#slider .text-description {
+    margin: 15px auto;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#content {
+    /*Mặc dù không CSS gì nhưng không được bỏ đi*/
+}
+
+#content .content-section{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 16px;
+}
+
+#content .section-heading {
+    margin: 10px auto;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 4px;
+    line-height: 45px;
+}
+
+#content .section-sub-heading {
+    margin: 15px auto;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    opacity: .6;
+    font-style: italic;
+}
+
+#content .about-text {
+    margin: 15px 0 15px 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22.5px;
+    text-align: justify;
+}
+
+#content .members-list{
+    padding: 32px 0;
+    /* text-size-adjust: 100%; */
+    /* overflow: hidden; */
+}
+
+/*
+    Khi ta sử dụng float, 3 item sẽ bị tách ra khỏi list và ở một layer khác. Để khắc phục:
+        + Cách 1: overflow
+        + Cách 2: clear float
+*/
+
+/* #content .member-item {
+    float: left;
+    width: calc(100%/3);
+    text-align: center;
+} */
+
+#content .member-name {
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+    margin: 15px 0 15px 0;
+}
+
+#content .member-img {
+    margin-bottom: 16px;
+    width: 60%; /*60% chiều rộng của thẻ member-item*/
+    border-radius: 4px;
+}
+
+.white-text {
+    color: #fff !important;
+}
+
+.tour-section {
+    background: #000;
+}
+
+.tour-section li {
+    list-style: none;
+}
+
+.tickets-list {
+    background: #fff;
+}
+
+.tickets-list li {
+    display: list-item;
+    line-height: 1.5;
+    padding: 8px 16px;
+    font-size: 15px;
+    color: rgb(117, 117, 117);
+    border-bottom: 1px solid #ddd;
+}
+
+.tickets-list .sold-out {
+    background: #F44336;
+    color: #fff;
+    margin-left: 16px;
+    padding: 0 8px;
+}
+
+.tickets-list .quantity {
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 8px;
+    float: right;
+    text-align: center;
+    line-height: 1.6;
+    margin-top: -1px;
+    /*quantity lấy thẻ li làm gốc tọa độ. Quantity có kích thước lơn hơn chiều cao thẻ li nên bị dư 1 đoạn -> dùng margin top để di chuyển lên 1 tí (margin âm chỉ sử dụng được khi có float)*/
+}
+
+/*====== Places list ======
+ + Các thành phần trong place-list chứa tính chất của hàng
+ + Các thành phần trong place-item chứa tính chất của cột
+  !! Width = 33% không thể là tính chất của cột vì không phải lúc nào cũng là 3 cột
+*/
+
+/*Để các tính chất left, right không còn liên quan tới place-list, ta tách luôn phần padding left right sang row*/
+
+.place-list {
+    /* padding: 32px 8px; */
+    padding-top: 32px;
+    /* padding-bottom: 32px; */
+    padding-bottom: 48px; /*Nhận thêm 16px từ margin bottom của item*/
+    /* margin: 0 -16px; */
+}
+
+/*
+margin left và right là số âm là để căn đều 3 place list, nếu không, 2 khoảng cách ở giữa place 1 vs 2 và 2 vs 3 sẽ gấp đôi bên trái place 1 hoặc bên phải place 3 */
+
+/* .place-item {
+    margin-bottom: 16px;
+    padding: 0 8px;
+    width: calc(100%/3);
+    background-clip: content-box;
+    float: left;
+} */
+
+.place-img {
+    width: 100%;
+    vertical-align: middle;
+    /*
+    Có thể thay thế bằng display block, tác dụng giúp loại bỏ khoảng cách giữa img vs body
+    */
+}
+
+.place-img:hover {
+    opacity: .6;
+}
+
+.place-body {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0.15px 16px;
+    background-color: #fff;
+}
+
+.place-heading {
+    margin: 15px 0;
+}
+
+.place-time {
+    opacity: .6;
+    margin-bottom: 15px;
+}
+
+.place-desc {
+    margin-bottom: 15px;
+}
+
+.contact-content {
+    padding: 32px 0;
+}
+
+.contact-info {
+    font-size: 18px;
+}
+
+.contact-info i[class*="ti-"] {
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-form .form-control {
+    padding: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.map-section img {
+    width: 100%;
+}
+
+#footer {
+    padding: 64px 16px;
+    text-align: center;
+}
+
+.socials-list a {
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1.5;
+    color: black;
+    opacity: .6;
+    cursor: unset;
+}
+
+.socials-list a:hover{
+    opacity: .4;
+}
+
+.copyright {
+    opacity: .6;
+}
+
+.copyright a {
+    color: black;
+}

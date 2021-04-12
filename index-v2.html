@@ -1,3 +1,5 @@
+<!-- CHƯA THỰC HIỆN RESPONSIVE -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +12,16 @@
 </head>
 <body>
     <div id="main">
+        <!--
+            Cố định header
+                + Set position là fixed
+                + Lúc này, header trở thành layer riêng biệt và không còn kế thừa chiều ngang từ main được nữa -> top left right = 0
+                + Lúc này, ta cần xử lý lại phần bên dưới header vì 1 phần bị header che mất (slider) -> chỉnh margin-top của slider
+        -->
         <div id="header">
+            <!-- Shorthand: ul#nav>li*5>a -->
             <ul id="nav">
+                <!--Dùng CSS để chuyển tất cả thành 1 dạng đồng nhất (Chữ hoa hoặc chữ thường), không phụ thuộc input-->
                 <li><a href="#">Home</a></li>
                 <li><a href="#band">Band</a></li>
                 <li><a href="#tour">Tour</a></li>
@@ -26,8 +36,30 @@
                         <li><a href="#">Extras</a></li>
                         <li><a href="#">Media</a></li>
                     </ul>
+                    <!--
+                        - Khi gặp các bài toán sub nav, việc đầu tiên là cho sub hiện ra, sau khi css xong ta mới set display + hover
+                        - Vì sub nav là con của More -> sử dụng absolute để set vị trí
+                        Lúc này, vị trí của sub nav lấy thẻ li cha của nó làm gốc tọa độ
+                            Để fix giá trị, ta nên đặt top là 100% (cách thẻ cha đúng 46px) và left là 0
+                        - Trả lời 4 câu hỏi trước khi CSS:
+                            + Vị trí: con của More, nằm dưới More -> ok
+                            + Kích thước: cao 46px
+                            + Màu sắc, kiểu dáng
+                                _ vì các subnav đều thỏa mãn #nav li a nên đều chịu ảnh hướng của các lệnh CSS trước -> sử dụng con trực tiếp
+                                    #nav > li > a
+                                _ màu chữ của sub nav chuyển thành đen (#nav .subnav a)
+                                _ khi di chuột vào More, subnav vẫn bị nền xám -> phải tách ra
+                                _ thẻ .subnav li a có thuộc tính inline-block -> có tính chất khối (xét được chiều ngang chiều dọc), nhưng vừa có tính chất inline, nghĩa là không kế thừa chiều ngang của thẻ cha mà chỉ có kích thước vừa đủ với content
+                                    -> sửa inline - block thành block và display của li trong subnav thành block (hoặc có thể cho width là 100%)
+                                _ viết hoa sub cấp 1
+                        !!! CÁC KÍCH THƯỚC KHOẢNG CÁCH NÊN CHIA HẾT CHO 4
+                                _ tạo bóng đổ cho subnav
+                                _ di vào thẻ li -> hiện subnav
+                    -->
                 </li>
             </ul>
+
+            <!--Search btn-->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
             </div>
@@ -35,6 +67,16 @@
         
         <!-- ------- Slider start ------- -->
         <div id="slider">
+            <!-- NOTE
+            + Ta nhận thấy rằng, ảnh trong phần này chiếm toàn bộ chiều ngang. Vì được đặt trong thẻ div (có tính chất kế thừa chiều ngang) nên ta không cần quan tâm tới
+            + Dựa vào KÍCH THƯỚC GỐC của bức ảnh cần chèn để tính ra TỈ LỆ giữa chiều rộng vào chiều cao của bức ảnh -> khi hiển thị, ta chỉ cần hiển thị đúng tỉ lệ đó thì ảnh sẽ không bị méo
+            + Ta đặt padding-top = 50% <-> 50% ở đây nghĩa là 50% kích thước của chính đối tượng đó
+            + Ta chèn hình ảnh dưới dạng background-image, bg-clip sẽ là padding-box
+            + Chèn text
+            + Khi ta thêm text mà chưa chỉnh sửa gì, mặc định phần text sẽ là phần content của slider, phần padding sẽ tự động căn theo chiều rộng (không đổi) -> chiều cao (padding cũng sẽ không đổi) sẽ bị thay đổi bởi phần content mới được thêm vào -> thay đổi tỉ lệ ban đầu
+                -> set slider position = relative, text-content position = absolute
+                Lúc này, text-content không còn chiếm chỗ trong slider nữa mà đã ở 1 layer khác
+            -->
             <div class="text-content">
                 <h2 class="text-heading">New York</h2>
                 <div class="text-description">
@@ -52,6 +94,9 @@
                     We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
                 <div class="row members-list">
+                    <!--
+                        + Thẻ div có tính chất block nên khi khởi tạo, mỗi member sẽ nằm trên một dòng
+                    --> 
                     <div class="col col-3 text-center">
                         <p class="member-name">Cristiano Ronaldo</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Cristiano Ronaldo" class="member-img">
@@ -63,11 +108,16 @@
                     <div class="col col-3 text-center">
                         <p class="member-name">Bruno Fernandes</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Bruno Fernandes" class="member-img">
-                    </div>
+                    </div>       
+                    <!-- <div class="clear"></div>              -->
                 </div>
             </div>
             
-            <!------------TOUR SECTION------------>
+            <!------------TOUR SECTION----------
+            + Khi ta set thuộc tính background color, phần margin sẽ không được set
+            -> đối với phần tour, ta phải tạo một thẻ div bao phủ bên ngoài
+            + Vì màu chữ mặc định được set là đen, ta có thể tạo thêm 1 class dành riêng để chuyển thành chữ trắng, và thêm tên class vào phần text cần chuyển
+            -->
             <div id="tour" class="tour-section">
                 <div class="content-section">
                     <h2 class="section-heading white-text">TOUR DATES</h2>
@@ -78,6 +128,16 @@
                         <li>October <span class="sold-out">Sold out</span></li>
                         <li>November <span class="quantity">3</span></li>
                     </ul>
+
+                    <!--
+                            PHÂN TÍCH PHẦN BÁN VÉ
+                        + Có 1 thẻ div cha chứa 3 địa điểm, trong thẻ div cha có 3 thẻ div con cho 3 địa điểm đó
+                        + Trong mỗi thẻ div con gồm có:
+                            - Một thẻ div chứa img
+                            - Một thẻ div chứa content (vì phần btn và chữ được căn lề giống nhau)
+                            - Vì các thẻ div con có cấu trúc giống nhau nên chỉ cần tạo cấu trúc 1 lần và nhân 3 lên
+                    -->
+
                     <div class="row place-list">
                         <div class="col col-3">
                             <img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
@@ -106,10 +166,23 @@
                                 <a href="#" class="btn mbt16">Buy Tickets</a>
                             </div>
                         </div>
+                        <!-- <div class="clear"></div>  -->
                     </div>
 
                 </div>
             </div>
+
+            <!-- __________ ROW - COLUMN  __________
+                + Trong các trang web, khái niệm hàng và cột được lặp lại ở rất nhiều nơi
+                + Ở vd này, phần member lists, tickets, places đều được chia thành các hàng và cột.
+                + Mặc dù có tính chất giống nhau nhưng ta lại phải đi CSS cho từng phần riêng biệt -> mất thời gian
+                 -> TẠI SAO CHÚNG TA KHÔNG CSS CHUNG THÀNH 1 CLASS VÀ CHỈ VIỆC GỌI LẠI TÊN CLASS ĐÓ ???
+                + Lợi ích:
+                    - Không cần CSS lặp lại nhiều lần
+                    - Tiết kiệm dung lượng file
+                    - Không mất công đặt tên class, tránh trùng lặp
+                + Tiến hành tách các thuộc tính chung của cột và hàng ra thành các class riêng biệt ở file CSS
+            -->
 
             <!--    ----- CONTACT -----   -->
             <div id="contact" class="content-section">
@@ -131,15 +204,24 @@
                                 <div class="col col-2">
                                     <input required type="email" placeholder="Email" class="form-control">
                                 </div>
+                                <!-- <div class="clear"></div> -->
                             </div>
                             <div class="row mt-8">
                                 <div class="col col-full">
                                     <input required type="text" placeholder="Message" class="form-control">
                                 </div>
+                                <!-- <div class="clear"></div> -->
                             </div>
                             <input class="mt16 btn pull-right" type="submit" value="SEND">
                         </form>
                     </div>
+                    <!-- <div class="clear"></div> -->
+                    
+
+                    <!-- Việc dùng lặp đi lặp lại nhiều lần clear là không tốt -> dùng pseudo element để CSS cho row -->
+
+                    <!--Ta nhận thấy btn của buy ticket và send là như nhau -> viết thành một class duy nhất, trong tương lai có thể sử dụng lại nhiều lần-->
+
                 </div>
             </div>
             <!--    ----- END CONTACT -----   -->
@@ -164,12 +246,3 @@
     </div>
 </body>
 </html>
-
-<!--
-            RESPONSIVE
-
-    + Thông thường, ta sẽ hoàn thiện giao diện PC trước, sau đó lần lượt cho các kích thước nhỏ hơn.
-    + Ta dùng dev tool để giả lập các thiết bị, fix các phần lỗi mà thiết bị đó gặp phải
-    
-
--->
