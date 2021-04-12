@@ -31,6 +31,9 @@
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
             </div>
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
+            </div>
         </div>
         
         <!-- ------- Slider start ------- -->
@@ -52,15 +55,15 @@
                     We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
                 <div class="row members-list">
-                    <div class="col col-3 text-center">
+                    <div class="mobile-col-fullsize col col-3 text-center">
                         <p class="member-name">Cristiano Ronaldo</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Cristiano Ronaldo" class="member-img">
                     </div>
-                    <div class="col col-3 text-center">
+                    <div class="mobile-col-fullsize col col-3 text-center">
                         <p class="member-name">Marcus Rashford</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Marcus Rashford" class="member-img">
                     </div>
-                    <div class="col col-3 text-center">
+                    <div class="mobile-col-fullsize col col-3 text-center">
                         <p class="member-name">Bruno Fernandes</p>
                         <img src="/w3school/assets/img/band/member1.jpg" alt="Bruno Fernandes" class="member-img">
                     </div>
@@ -79,31 +82,31 @@
                         <li>November <span class="quantity">3</span></li>
                     </ul>
                     <div class="row place-list">
-                        <div class="col col-3">
+                        <div class="col col-3 mobile-col-fullsize mt16">
                             <img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <p class="place-heading"><b>New York</b></p>
                                 <p class="place-time">Fri 27 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="btn mbt16">Buy Tickets</a>
+                                <a href="#" class="btn mbt16 mobile-btn-fullsize">Buy Tickets</a>
                             </div>
                         </div>
-                        <div class="col col-3">
+                        <div class="col col-3 mobile-col-fullsize mt16">
                             <img src="./assets/img/places/place2.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <p class="place-heading"><b>Paris</b></p>
                                 <p class="place-time">Sat 28 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="btn mbt16">Buy Tickets</a>
+                                <a href="#" class="btn mbt16 mobile-btn-fullsize">Buy Tickets</a>
                             </div>
                         </div>
-                        <div class="col col-3">
+                        <div class="col col-3 mobile-col-fullsize mt16">
                             <img src="./assets/img/places/place3.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <p class="place-heading"><b>San Francisco</b></p>
                                 <p class="place-time">Sun 29 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="btn mbt16">Buy Tickets</a>
+                                <a href="#" class="btn mbt16 mobile-btn-fullsize">Buy Tickets</a>
                             </div>
                         </div>
                     </div>
@@ -117,18 +120,18 @@
                 <p class="section-sub-heading">Fan? Drop a note!</p>
 
                 <div class="row contact-content">
-                    <div class="col col-2 contact-info">
+                    <div class="col col-2 mobile-col-fullsize contact-info">
                         <p><i class="ti-location-pin"></i> Chicago, US</p>
-                        <p><i class="ti-mobile"></i> Phone: +00 151515</p>
-                        <p><i class="ti-email"></i> Email: mail@mail.com</p>
+                        <p><i class="ti-mobile"></i> Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                        <p><i class="ti-email"></i> Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
                     </div>
-                    <div class="col col-2 contact-form">
+                    <div class="col col-2 mobile-col-fullsize contact-form mobile-mt16">
                         <form action="#">
                             <div class="row">
-                                <div class="col col-2">
+                                <div class="col col-2 mobile-col-fullsize">
                                     <input required type="text" placeholder="Name" class="form-control">
                                 </div>
-                                <div class="col col-2">
+                                <div class="col col-2 mobile-col-fullsize mobile-mt8">
                                     <input required type="email" placeholder="Email" class="form-control">
                                 </div>
                             </div>
@@ -137,7 +140,7 @@
                                     <input required type="text" placeholder="Message" class="form-control">
                                 </div>
                             </div>
-                            <input class="mt16 btn pull-right" type="submit" value="SEND">
+                            <input class="mt16 btn pull-right mobile-btn-fullsize" type="submit" value="SEND">
                         </form>
                     </div>
                 </div>
@@ -162,6 +165,41 @@
             <p class="copyright mt16 mbt16">Powered by <a href="#footer">w3.css</a></p>
         </div>
     </div>
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        //Sẽ có vấn đề phát sinh nếu sau này chúng ta không còn đặt height của header là 46px nữa -> menu không còn tác dụng -> phải đặt biến
+        var curHeigth = header.clientHeight;
+
+        mobileMenu.onclick = () => {
+            // var isClosed = header.clientHeight === 46;
+            var isClosed = header.clientHeight === curHeigth;
+            if (isClosed){
+                header.style.height = 'auto';
+            }
+            else {
+                header.style.height = null;
+            }
+            
+        }
+
+        //Tự động đóng menu khi chọn option
+        var options = document.querySelectorAll('#nav li a[href *= "#"]');
+        for(var i = 0; i<options.length;i++){
+            var option = options[i];
+            option.onclick = function(event) {
+                var isSubnav = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if (!isSubnav){
+                    header.style.height = null;
+                }else{
+                    event.preventDefault();
+                }
+                //Hành vì mặc định (điều hướng theo href về # bị loại bỏ, trang web sẽ không bị cuộn lên trên như khi ta ấn vào home)
+            }
+        }
+
+    </script>
+    
 </body>
 </html>
 
@@ -170,6 +208,37 @@
 
     + Thông thường, ta sẽ hoàn thiện giao diện PC trước, sau đó lần lượt cho các kích thước nhỏ hơn.
     + Ta dùng dev tool để giả lập các thiết bị, fix các phần lỗi mà thiết bị đó gặp phải
-    
+
+    ===================================================
+        Tablet: min width 740 + max width 1023
+    + Bug:
+        - Bị dư ra một phần viền trắng bên phải màn hình do các thẻ div chứa slider, tour, map chưa hiển thị đúng kích thước là 100%
+        - Còn lại ok
+    + Reason: content-section có width fix là 800px nên khi ở các màn hình có width nhỏ hơn 800px, nó sẽ bị dư ra một một khoảng
+    + Fix: thiết lập max-width cho content-section là 100%
+        -> Khi width > 800px thì 100% sẽ là 800px nhưng khi width < 800 thì 100% sẽ là width -> ta thấy phần margin auto không còn nữa
+
+    ===================================================
+        MOBILE ( max width 739 )
+
+    + Nav bar: Chỉ còn HOME và một menu (3 dấu gạch) chứa các option còn lại, hiển thị theo chiều dọc
+        - Display các thẻ li đổi thành display -> hiển thị dọc
+        - Phần backgroud phía dưới các thẻ li là cho heigth ban đầu chỉ là 46px -> chuyển heigth là auto
+        -> Mở menu: heigth auto + display li chiều dọc
+           Đóng menu: heigth 46px + ẩn lí (dùng overflow hiden (nghĩa là ẩn các đối tượng con phía ngoài đối tượng cha) với cha ở đâu chính là nav với heigth là 46px)
+        - Tạo thêm menu button cho mobile và ẩn search btn -> dùng JS
+        - Ẩn menu đi khi chọn vào các option -> tạo sự kiện click ở các option -> phải làm 5 onClick -> ta có thể lấy ra các thẻ a có href có chứa # (dùng selector) để giảm code.
+        - Menu ban đầu sẽ gặp các bug sau: 
+
+            .Click vào more sẽ không xuất hiện subnav: sử dụng nextElementSibling
+
+            .Ở các option, ta chỉ có thể select bằng cách bấm vào đúng tên option, không thể click vào khoảng trống bên phải (thường là do tính chất display): ta đi từ trong ra ngoài, thẻ a đã là block, nhưng li là inline-block -> sửa #nav thành block (chỉ đối với mobile). Vì các thẻ li trong nav là block nên mobile-menu-btn sẽ bị đẩy xuống dưới -> dùng position absolute + top 0 và right 0 để đặt lại đúng vị trí (trong file css chung). Tuy nhiên, HOME là option ngoại lệ, chỉ nên là inline block vì nó nằm trên thanh navbar (thẻ li đầu tiên của nav -> pseudo first child)
+
+            .Vì có overflow là hiden nên khi ta chọn vào more, sub nav vẫn sẽ bị ẩn đi (ở trên pc) nên ta chỉ áp dụng thuộc tính này cho mobile. Chuyển display của subnav từ absolute thành initial để hiện subnav
+            -------------------------
+    + Content: chỉnh width của member item và place item thành 100 % (các class này chỉ có tác dụng ở mobile)
+            -------------------------
+    + Contact form:
+        - Thêm class mobile col fullsize mới được tạo vào các col-2 
 
 -->
